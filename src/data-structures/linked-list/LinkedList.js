@@ -93,6 +93,10 @@ class LinkedList {
 
         return -1;
     }
+
+    Contains(element) {
+        return this.IndexOf(element) != -1;
+    }
 }
 
 class Node {
@@ -104,3 +108,5 @@ class Node {
 
 
 const linkedList = new LinkedList();
+linkedList.Add("Huseyn");
+const result = linkedList.Contains("Huseyn");

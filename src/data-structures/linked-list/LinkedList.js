@@ -104,9 +104,3 @@ class Node {
 
 
 const linkedList = new LinkedList();
-linkedList.Add("Huseyn");
-linkedList.Add("Aziz");
-linkedList.Add("Arzu");
-linkedList.Add("Elgiz");
-
-const index = linkedList.IndexOf("Aziz");

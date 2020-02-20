@@ -74,6 +74,25 @@ class LinkedList {
             this.tail = tempNode;
 
     }
+
+    IndexOf(element) {
+        let index = 0;
+        let tempNode = this.head;
+
+        if (tempNode.Element === element) {
+            return index;
+        }
+
+        while (tempNode.NexNode != null) {
+            index++;
+            if (tempNode.NexNode.Element === element) {
+                return index;
+            }
+            tempNode = tempNode.NexNode;
+        }
+
+        return -1;
+    }
 }
 
 class Node {
@@ -90,4 +109,4 @@ linkedList.Add("Aziz");
 linkedList.Add("Arzu");
 linkedList.Add("Elgiz");
 
-const index = linkedList.Remove("Arzu");
+const index = linkedList.IndexOf("Aziz");

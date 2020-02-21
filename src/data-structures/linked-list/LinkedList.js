@@ -1,9 +1,8 @@
 class LinkedList {
-    Count = 0;
-
     constructor() {
         this.head = null;
         this.tail = null;
+        this.Count = 0;
     }
 
     Add(element) {
@@ -20,19 +19,28 @@ class LinkedList {
     }
 
     Remove(element) {
+
+        if (this.Count === 0) {
+            return -1;
+        }
+
         let index = 0;
         let tempNode = this.head;
 
-        if (tempNode.NexNode.Element === element) {
+        if (tempNode.Element === element) {
+            this.head = this.head.NexNode;
+            if (!this.head) {
+                this.tail = null;
+            }
             this.Count--;
             return index;
         }
 
-        while (tempNode.NexNode != null) {
+        while (tempNode.NexNode) {
             if (tempNode.NexNode.Element === element) {
                 this.Count--;
                 tempNode.NexNode = tempNode.NexNode.NexNode;
-                if (tempNode.NexNode == null) {
+                if (!tempNode.NexNode) {
                     this.tail = tempNode;
                 }
                 index++;
@@ -47,15 +55,15 @@ class LinkedList {
 
     RemoveAt(index) {
         if (index < 0 || index >= this.Count) {
-            throw "Index is out of bound"
+            throw "Index is out of bound";
         }
 
         if (index == 0) {
-            this.Count--;
             this.head = this.head.NexNode;
-            if (this.head == null) {
+            if (!this.head) {
                 this.tail = null;
             }
+            this.Count--;
             return;
         }
 
@@ -70,9 +78,8 @@ class LinkedList {
         this.Count--;
         tempNode.NexNode = tempNode.NexNode.NexNode;
 
-        if (tempNode.NexNode == null)
+        if (!tempNode.NexNode)
             this.tail = tempNode;
-
     }
 
     IndexOf(element) {
@@ -83,7 +90,7 @@ class LinkedList {
             return index;
         }
 
-        while (tempNode.NexNode != null) {
+        while (tempNode.NexNode) {
             index++;
             if (tempNode.NexNode.Element === element) {
                 return index;
@@ -92,6 +99,32 @@ class LinkedList {
         }
 
         return -1;
+    }
+
+    Insert(index, element) {
+        if (index < 0 || index > this.Count) {
+            throw "Index is out of bound";
+        }
+
+        let tempNode = this.head;
+        let singleNode = tempNode.NexNode;
+
+        if (index == 0) {
+            singleNode = this.head;
+            this.head = new Node(element);
+            this.head.NexNode = singleNode;
+            return;
+        }
+
+        let currentIndex = 1;
+        while (currentIndex < index) {
+            currentIndex++;
+            tempNode = tempNode.NexNode;
+        }
+
+        singleNode = tempNode.NexNode;
+        tempNode.NexNode = new Node(element);
+        tempNode.NexNode.NexNode = singleNode;
     }
 
     Contains(element) {
@@ -109,4 +142,8 @@ class Node {
 
 const linkedList = new LinkedList();
 linkedList.Add("Huseyn");
-const result = linkedList.Contains("Huseyn");
+linkedList.Add("Senan");
+// linkedList.Add("Elmar");
+// linkedList.Add("Mirze");
+
+linkedList.Remove("Senan");

@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///G:/Huseyn/Programming/javascript/js-algorithms/index.html",
+            "url": "file:///D:/huseyn/own/javascript/ds-algorithms/js-algorithms/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

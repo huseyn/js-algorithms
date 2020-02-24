@@ -1,0 +1,24 @@
+{
+  "name": "js-algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HuseynM/js-algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HuseynM/js-algorithms/issues"
+  },
+  "homepage": "https://github.com/HuseynM/js-algorithms#readme",
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "test": "^0.6.0"
+  }
+}

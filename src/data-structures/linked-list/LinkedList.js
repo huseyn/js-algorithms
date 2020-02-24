@@ -1,4 +1,4 @@
-class LinkedList {
+ class LinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
@@ -83,6 +83,11 @@ class LinkedList {
     }
 
     IndexOf(element) {
+
+        if(this.Count ===0){
+            return -1;
+        }
+
         let index = 0;
         let tempNode = this.head;
 
@@ -132,6 +137,7 @@ class LinkedList {
     }
 }
 
+
 class Node {
     constructor(element) {
         this.Element = element;
@@ -141,9 +147,8 @@ class Node {
 
 
 const linkedList = new LinkedList();
-linkedList.Add("Huseyn");
-linkedList.Add("Senan");
 // linkedList.Add("Elmar");
 // linkedList.Add("Mirze");
 
-linkedList.Remove("Senan");
+console.log(linkedList.IndexOf("test"));
+module.exports = LinkedList;

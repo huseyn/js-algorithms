@@ -6,7 +6,7 @@
      }
 
      Add(element) {
-         const node = new Node(element, null, this.tail);
+         const node = new Node(element, this.tail);
          if (!this.head) {
              this.head = node;
              this.tail = this.head;
@@ -139,7 +139,7 @@
 
 
  class Node {
-     constructor(element, nextNode, prevNode) {
+     constructor(element, prevNode, nextNode = null) {
          this.Element = element;
          this.NexNode = nextNode;
          this.PrevNode = prevNode;

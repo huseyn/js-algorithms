@@ -46,7 +46,7 @@ describe('LinkedList', () => {
     expect(linkedList.Remove(1)).toBe(-1);
   });
 
-  it('should return 0 and remove node in linked list and head&tail should be null', () => {
+  it('should return 0 and remove node in linked list', () => {
     const linkedList = new LinkedList();
     linkedList.Add(1);
     expect(linkedList.Remove(1)).toBe(0);
@@ -54,7 +54,7 @@ describe('LinkedList', () => {
     expect(linkedList.tail).toBeNull();
   });
 
-  it('should return 0 and remove node in linked list and head&tail should be changed', () => {
+  it('should return 0 and remove node in linked list', () => {
     const linkedList = new LinkedList();
     linkedList.Add(1);
     linkedList.Add(2);
@@ -63,7 +63,7 @@ describe('LinkedList', () => {
     expect(linkedList.tail.Element).toBe(2);
   });
 
-  it('should return 1 in linked list and tail should not be changed', () => {
+  it('should return 1 in linked list', () => {
     const linkedList = new LinkedList();
     linkedList.Add(1);
     linkedList.Add(2);
@@ -79,6 +79,32 @@ describe('LinkedList', () => {
     const linkedList = new LinkedList();
     expect(() => linkedList.RemoveAt(-1)).toThrow();
     expect(() => linkedList.RemoveAt(1)).toThrow();
+  });
+
+  it('should return first element and remove first element in linked list', () => {
+    const linkedList = new LinkedList();
+    linkedList.Add(1);
+    expect(linkedList.RemoveAt(0)).toBe(1);
+    expect(linkedList.head).toBeNull();
+    expect(linkedList.tail).toBeNull();
+  });
+
+  it('should return first element and remove first element in linked list', () => {
+    const linkedList = new LinkedList();
+    linkedList.Add(1);
+    linkedList.Add(2);
+    expect(linkedList.RemoveAt(0)).toBe(1);
+    expect(linkedList.head.Element).toBe(2);
+    expect(linkedList.tail.Element).toBe(2);
+  });
+
+  it('should return second element and remove second element in linked list', () => {
+    const linkedList = new LinkedList();
+    linkedList.Add(1);
+    linkedList.Add(2);
+    expect(linkedList.RemoveAt(1)).toBe(2);
+    expect(linkedList.head.Element).toBe(1);
+    expect(linkedList.tail.Element).toBe(1);
   });
 
 });

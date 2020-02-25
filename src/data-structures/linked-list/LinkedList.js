@@ -58,13 +58,15 @@
              throw new Error("Index is out of bound");
          }
 
+         let nodeElement;
          if (index == 0) {
+             nodeElement = this.head.Element;
              this.head = this.head.NexNode;
              if (!this.head) {
                  this.tail = null;
              }
              this.Count--;
-             return;
+             return nodeElement;
          }
 
          let currentIndex = 1;
@@ -76,10 +78,13 @@
          }
 
          this.Count--;
+         nodeElement = tempNode.NexNode.Element;
          tempNode.NexNode = tempNode.NexNode.NexNode;
 
          if (!tempNode.NexNode)
              this.tail = tempNode;
+
+         return nodeElement;
      }
 
      IndexOf(element) {

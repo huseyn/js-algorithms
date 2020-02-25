@@ -27,9 +27,14 @@ describe('LinkedList', () => {
 
   it('should return index of node in linked list', () => {
     const linkedList = new LinkedList();
-    expect(linkedList.IndexOf(5)).toBe(-1);
+    expect(linkedList.IndexOf(3)).toBe(-1);
     linkedList.Add(1);
+    linkedList.Add(2);
+    linkedList.Add(3);
     expect(linkedList.IndexOf(1)).toBe(0);
+    expect(linkedList.IndexOf(2)).toBe(1);
+    expect(linkedList.IndexOf(3)).toBe(2);
+    expect(linkedList.IndexOf(4)).toBe(-1);
   });
 
   it('should return -1 in linked list', () => {
@@ -37,7 +42,7 @@ describe('LinkedList', () => {
     expect(linkedList.Remove(1)).toBe(-1);
   });
 
-  it('should return 0 in linked list and head&tail should be null', () => {
+  it('should return 0 and remove node in linked list and head&tail should be null', () => {
     const linkedList = new LinkedList();
     linkedList.Add(1);
     expect(linkedList.Remove(1)).toBe(0);
@@ -45,7 +50,7 @@ describe('LinkedList', () => {
     expect(linkedList.tail).toBeNull();
   });
 
-  it('should return 0 in linked list and head&tail should be changed', ()=>{
+  it('should return 0 and remove node in linked list and head&tail should be changed', ()=>{
     const linkedList = new LinkedList();
     linkedList.Add(1);
     linkedList.Add(2);
@@ -58,8 +63,9 @@ describe('LinkedList', () => {
     const linkedList = new LinkedList();
     linkedList.Add(1);
     linkedList.Add(2);
-    expect(linkedList.Remove(2)).toBe(1); 
     expect(linkedList.head.Element).toBe(1);
+    expect(linkedList.tail.Element).toBe(2);
+    expect(linkedList.Remove(2)).toBe(1); 
     expect(linkedList.head.Element).toBe(1);
     expect(linkedList.tail.Element).toBe(1);
   });

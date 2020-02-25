@@ -11,10 +11,18 @@ describe('LinkedList', () => {
     it('should add node to linked list', () => {
         const linkedList = new LinkedList();
         expect(linkedList.Count).toBe(0);
-        linkedList.Add("Huseyn");
+        linkedList.Add(1);
         expect(linkedList.Count).toBe(1);
-        linkedList.Add("Mikayil");
+        expect(linkedList.head).not.toBeNull();
+        expect(linkedList.tail).not.toBeNull();
+        linkedList.Add(2);
         expect(linkedList.Count).toBe(2);
+        expect(linkedList.head.Element).toBe(1);
+        expect(linkedList.tail.Element).toBe(2);
+        linkedList.Add(3);
+        expect(linkedList.Count).toBe(3);
+        expect(linkedList.head.Element).toBe(1);
+        expect(linkedList.tail.Element).toBe(3);
     });
 
     it('should return index of node in linked list', () => {

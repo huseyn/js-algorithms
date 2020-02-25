@@ -75,7 +75,7 @@ describe('LinkedList', () => {
   });
 
   /*RemoveAt method tests */
-  it('should throw exception', () => {
+  it('should throw exception when try to remove', () => {
     const linkedList = new LinkedList();
     expect(() => linkedList.RemoveAt(-1)).toThrow();
     expect(() => linkedList.RemoveAt(1)).toThrow();
@@ -107,4 +107,10 @@ describe('LinkedList', () => {
     expect(linkedList.tail.Element).toBe(1);
   });
 
+  /*Insert method tests */
+  it('should throw exception when try to insert', () => {
+    const linkedList = new LinkedList();
+    expect(() => linkedList.Insert(-1, 5)).toThrow();
+  });
+  
 });

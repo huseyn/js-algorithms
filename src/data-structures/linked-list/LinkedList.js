@@ -113,7 +113,7 @@
 
      Insert(index, element) {
          if (index < 0 || index > this.Count) {
-             throw new "Index is out of bound";
+             throw new Error("Index is out of bound");
          }
 
          let tempNode = this.head;
@@ -144,7 +144,7 @@
 
 
  class Node {
-     constructor(element, prevNode, nextNode = null) {
+     constructor(element, prevNode = null, nextNode = null) {
          this.Element = element;
          this.NexNode = nextNode;
          this.PrevNode = prevNode;

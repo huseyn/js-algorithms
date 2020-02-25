@@ -3,11 +3,13 @@ const LinkedList = require('../LinkedList');
 
 describe('LinkedList', () => {
 
+  /*Create instance of linked list*/
   it('should create empty linked list', () => {
     const linkedList = new LinkedList();
     expect(linkedList).not.toBeNull();
   });
 
+  /*Add method tests*/
   it('should add node to linked list', () => {
     const linkedList = new LinkedList();
     expect(linkedList.Count).toBe(0);
@@ -25,6 +27,7 @@ describe('LinkedList', () => {
     expect(linkedList.tail.Element).toBe(3);
   });
 
+  /*IndexOf method tests*/
   it('should return index of node in linked list', () => {
     const linkedList = new LinkedList();
     expect(linkedList.IndexOf(3)).toBe(-1);
@@ -37,6 +40,7 @@ describe('LinkedList', () => {
     expect(linkedList.IndexOf(4)).toBe(-1);
   });
 
+  /*Remove method tests*/
   it('should return -1 in linked list', () => {
     const linkedList = new LinkedList();
     expect(linkedList.Remove(1)).toBe(-1);
@@ -50,7 +54,7 @@ describe('LinkedList', () => {
     expect(linkedList.tail).toBeNull();
   });
 
-  it('should return 0 and remove node in linked list and head&tail should be changed', ()=>{
+  it('should return 0 and remove node in linked list and head&tail should be changed', () => {
     const linkedList = new LinkedList();
     linkedList.Add(1);
     linkedList.Add(2);
@@ -65,8 +69,16 @@ describe('LinkedList', () => {
     linkedList.Add(2);
     expect(linkedList.head.Element).toBe(1);
     expect(linkedList.tail.Element).toBe(2);
-    expect(linkedList.Remove(2)).toBe(1); 
+    expect(linkedList.Remove(2)).toBe(1);
     expect(linkedList.head.Element).toBe(1);
     expect(linkedList.tail.Element).toBe(1);
   });
+
+  /*RemoveAt method tests */
+  it('should throw exception', () => {
+    const linkedList = new LinkedList();
+    expect(() => linkedList.RemoveAt(-1)).toThrow();
+    expect(() => linkedList.RemoveAt(1)).toThrow();
+  });
+
 });

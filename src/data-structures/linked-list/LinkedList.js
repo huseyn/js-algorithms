@@ -55,7 +55,7 @@
 
      RemoveAt(index) {
          if (index < 0 || index >= this.Count) {
-             throw "Index is out of bound";
+             throw new Error("Index is out of bound");
          }
 
          if (index == 0) {
@@ -108,7 +108,7 @@
 
      Insert(index, element) {
          if (index < 0 || index > this.Count) {
-             throw "Index is out of bound";
+             throw new "Index is out of bound";
          }
 
          let tempNode = this.head;
@@ -148,8 +148,6 @@
 
 
  const linkedList = new LinkedList();
- linkedList.Add("Huseyn");
- linkedList.Add("Senan");
 
  console.log(linkedList.IndexOf("test"));
  module.exports = LinkedList;

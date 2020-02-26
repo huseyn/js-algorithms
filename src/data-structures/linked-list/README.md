@@ -4,7 +4,7 @@ Read about linked list in other languages <br />
 [_Azərbaycan dilində_](README-az.md)
 
 Linked list is a linear data structure, in which the elements are not stored at contiguous memory locations.  Linked list items are considered node and each node refer to the next node. So each node keep
-information about their next node:
+information about its next node:
 
 ### [head] -> [next node] -> [next node] -> ... -> null
 

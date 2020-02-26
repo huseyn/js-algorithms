@@ -50,7 +50,7 @@ Remove(element) { -- list-dən silinəcək olan element
                  this.Count--;
                  tempNode.NexNode = tempNode.NexNode.NexNode; -- NextNode bir sonrakı node ilə 
                  əvəz edildikdə mövcud node silinmiş hesab olunur 
-                 və heç bir node ilə bağlantısı qalmadığına görə GC tərəfində təmizlənir. 
+                 və heç bir node ilə reference qalmadığına görə GC tərəfində təmizlənir. 
                  if (!tempNode.NexNode) {
                      this.tail = tempNode;
                  }

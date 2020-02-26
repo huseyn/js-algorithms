@@ -20,6 +20,45 @@ Add(element) { -- list-ə əlavə ediləcək olan element
              this.tail = node;
          }
 
-         this.Count++; -- list-dəki element sayını bir vahid artırılması
+         this.Count++; -- list-dəki element sayını bir vahid artır
+     }
+```
+
+## Remove
+
+```text
+Remove(element) { -- list-dən silinəcək olan element
+
+         if (this.Count === 0) { -- list boşdursa -1 qaytar
+             return -1;
+         }
+
+         let index = 0;
+         let tempNode = this.head;
+
+         if (tempNode.Element === element) { -- silinəcək elementin head (ilk node) olub olmadığı
+             this.head = this.head.NexNode;
+             if (!this.head) { -- həmçinin son elementdirsə tail də null olmalıdır. 
+                 this.tail = null;
+             }
+             this.Count--; -- list-dəki element sayını bir vahid azalt
+             return index; -- silinən elementin indeksinin qaytar
+         }
+
+         while (tempNode.NexNode) { 
+             if (tempNode.NexNode.Element === element) {
+                 this.Count--;
+                 tempNode.NexNode = tempNode.NexNode.NexNode; -- NextNode bir sonrakı node ilə əvəz edildikdə mövcud node silinmiş hesab olunur və heç bir node ilə bağlantısı qalmadığına görə GC tərəfində təmizlənir. 
+                 if (!tempNode.NexNode) {
+                     this.tail = tempNode;
+                 }
+                 index++;
+                 break;
+             }
+             tempNode = tempNode.NexNode;
+             index++;
+         }
+
+         return index;
      }
 ```

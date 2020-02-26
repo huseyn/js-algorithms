@@ -1,10 +1,10 @@
 # Linked List
 
-Linked list xətti data strukturlara aid olub, elementləri RAM-da fiziki olaraq ayrılmış hissədə ardıcıl olaraq yerləşmir.  Linked list hər bir elementi "node" ilə ifadə olunur və hər bir node digərinə reference saxlayır. Yəni hər bir node bir sonrakı node üçün özündə informasiya saxlayır:
+Linked list xətti data strukturlara aid olub, elementləri RAM-da fiziki olaraq ayrılmış hissədə ardıcıl olaraq yerləşməyə məcbur deyil.  Linked list hər bir elementi "node" ilə ifadə olunur və hər bir node digərinə reference saxlayır. Yəni hər bir node bir sonrakı node üçün özündə informasiya saxlayır:
 
 ### [head] -> [next node] -> [next node] -> ... -> null
 
-Beləliklə hər bir node obyekti addressdə ardıcıl yox, xaotik şəkildə yerləşmiş olur. Bunu hörümçək toru kimi təsəvvür etmək olar. Nəticədə linked list-ə sürətli şəkildə yeni node əlavə etmək ( O(1) )  və silmək ( O(n) )mümkündür.   
+Beləliklə hər bir node obyekti addressdə ardıcıl yox, xaotik şəkildə yerləşə bilər. Bunu hörümçək toru kimi təsəvvür etmək olar. Nəticədə linked list-ə sürətli şəkildə yeni node əlavə etmək ( O(1) )  və silmək ( O(n) )mümkündür.   
 
 
 ## Add
@@ -48,7 +48,8 @@ Remove(element) { -- list-dən silinəcək olan element
          while (tempNode.NexNode) { 
              if (tempNode.NexNode.Element === element) {
                  this.Count--;
-                 tempNode.NexNode = tempNode.NexNode.NexNode; -- NextNode bir sonrakı node ilə əvəz edildikdə mövcud node silinmiş hesab olunur 
+                 tempNode.NexNode = tempNode.NexNode.NexNode; -- NextNode bir sonrakı node ilə 
+                 əvəz edildikdə mövcud node silinmiş hesab olunur 
                  və heç bir node ilə bağlantısı qalmadığına görə GC tərəfində təmizlənir. 
                  if (!tempNode.NexNode) {
                      this.tail = tempNode;

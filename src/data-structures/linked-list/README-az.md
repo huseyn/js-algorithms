@@ -20,6 +20,6 @@ Add(element) { -- list-ə əlavə ediləcək olan element
              this.tail = node;
          }
 
-         this.Count++;
+         this.Count++; -- list-dəki element sayını bir vahid artırılması
      }
 ```

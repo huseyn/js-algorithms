@@ -49,3 +49,5 @@ const b = stack.pop();
 const c = stack.contains(2);
 const d = stack.toArray();
 stack.clear();
+
+module.exports = Stack;

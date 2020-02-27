@@ -1,5 +1,8 @@
 class Stack {
 
+    constructor(){
+        this.container = [];
+    }
 
     push() {
 

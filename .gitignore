@@ -122,3 +122,6 @@ ehthumbs_vista.db
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+.vscode/launch.json
+.gitignore
+.vscode/settings.json

@@ -31,8 +31,24 @@ class Hashtable {
             this.array[hashCode] = undefined;
         }
     }
+
+    contains(element) {
+        const hashCode = this.hashCode(element);
+        if (hashCode > this.length) {
+            const index = hashCode % this.length;
+            if (this.array[index] === element) {
+                return true;
+            }
+        } else {
+            if (this.array[hashCode] === element) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
 
 const ht = new Hashtable(1000);
 ht.put('huseyn');
-ht.remove('huseyn');
+ht.contains('huseyn');

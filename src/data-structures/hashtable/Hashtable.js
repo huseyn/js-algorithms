@@ -21,7 +21,18 @@ class Hashtable {
             this.array[hashCode] = element;
         }
     }
+
+    remove(element) {
+        const hashCode = this.hashCode(element);
+        if (hashCode > this.length) {
+            const index = hashCode % this.length;
+            this.array[index] = undefined;
+        } else {
+            this.array[hashCode] = undefined;
+        }
+    }
 }
 
 const ht = new Hashtable(1000);
 ht.put('huseyn');
+ht.remove('huseyn');

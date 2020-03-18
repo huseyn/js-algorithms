@@ -9,7 +9,7 @@ class Hashtable {
     constructor(length) {
         this.array = new Array(length);
         this.length = length;
-        this.temphash = 10;
+        //this.temphash = 10;
     }
 
     hashCode(element) {
@@ -17,8 +17,8 @@ class Hashtable {
         if (l > 0)
             while (i < l)
                 h = (h << 5) - h + element.charCodeAt(i++) | 0;
-        // return Math.abs(h);
-        return this.temphash;
+        return Math.abs(h);
+        //return this.temphash;
     };
 
     put(element) {
@@ -78,12 +78,28 @@ class Hashtable {
         const hashCode = this.hashCode(element);
         if (hashCode > this.length) {
             const index = hashCode % this.length;
-            if (this.array[index] === element) {
-                return true;
+            if (this.array[index]) {
+                if (this.array[index].Element === element) {
+                    return true;
+                } else {
+                    while (this.array[index].NextNode) {
+                        if (this.array[index].NextNode === element) {
+                            return true;
+                        }
+                    }
+                }
             }
         } else {
-            if (this.array[hashCode] === element) {
-                return true;
+            if (this.array[hashCode]) {
+                if (this.array[hashCode].Element === element) {
+                    return true;
+                } else {
+                    while (this.array[hashCode].NextNode) {
+                        if (this.array[hashCode].NextNode === element) {
+                            return true;
+                        }
+                    }
+                }
             }
         }
 

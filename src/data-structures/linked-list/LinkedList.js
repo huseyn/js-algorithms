@@ -5,7 +5,7 @@
          this.Count = 0;
      }
 
-     Add(element) {
+     add(element) {
          const node = new Node(element, this.tail);
          if (!this.head) {
              this.head = node;
@@ -18,7 +18,7 @@
          this.Count++;
      }
 
-     Remove(element) {
+     remove(element) {
 
          if (this.Count === 0) {
              return -1;
@@ -53,7 +53,7 @@
          return index;
      }
 
-     RemoveAt(index) {
+     removeAt(index) {
          if (index < 0 || index >= this.Count) {
              throw new Error("Index is out of bound");
          }
@@ -87,7 +87,7 @@
          return nodeElement;
      }
 
-     IndexOf(element) {
+     indexOf(element) {
 
          if (this.Count === 0) {
              return -1;
@@ -111,7 +111,7 @@
          return -1;
      }
 
-     Insert(index, element) {
+     insert(index, element) {
          if (index < 0 || index > this.Count) {
              throw new Error("Index is out of bound");
          }
@@ -137,7 +137,7 @@
          tempNode.NexNode.NexNode = singleNode;
      }
 
-     Contains(element) {
+     contains(element) {
          return this.IndexOf(element) != -1;
      }
  }

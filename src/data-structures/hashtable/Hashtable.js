@@ -9,6 +9,7 @@ class Hashtable {
     constructor(length) {
         this.array = new Array(length);
         this.length = length;
+        this.count = 0;
         //this.temphash = 10;
     }
 
@@ -29,15 +30,19 @@ class Hashtable {
             if (this.array[index]) {
                 node.NextNode = this.array[index];
                 this.array[index] = node;
+                this.count++;
             } else {
                 this.array[index] = element;
+                this.count++;
             }
         } else {
             if (this.array[hashCode]) {
                 node.NextNode = this.array[hashCode];
                 this.array[hashCode] = node;
+                this.count++;
             } else {
                 this.array[hashCode] = element;
+                this.count++;
             }
         }
     }
@@ -49,6 +54,7 @@ class Hashtable {
             if (this.array[index]) {
                 if (this.array[index].Element === element) {
                     this.array[index] = undefined;
+                    this.count--;
                 } else {
                     while (this.array[index].NextNode) {
                         if (this.array[index].NextNode === element) {
@@ -56,12 +62,14 @@ class Hashtable {
                             break;
                         }
                     }
+                    this.count--;
                 }
             }
         } else {
             if (this.array[hashCode]) {
                 if (this.array[hashCode].Element === element) {
                     this.array[hashCode] = undefined;
+                    this.count--;
                 } else {
                     while (this.array[hashCode].NextNode) {
                         if (this.array[hashCode].NextNode === element) {
@@ -69,6 +77,7 @@ class Hashtable {
                             break;
                         }
                     }
+                    this.count--;
                 }
             }
         }
@@ -109,6 +118,7 @@ class Hashtable {
 
 const ht = new Hashtable(5);
 ht.put('huseyn');
-ht.put('senan');
-ht.remove('senan');
+ht.put('huseyn');
+ht.put('asdf');
+ht.put('fg');
 ht.contains('huseyn');

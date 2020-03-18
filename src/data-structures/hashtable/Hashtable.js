@@ -9,6 +9,7 @@ class Hashtable {
     constructor(length) {
         this.array = new Array(length);
         this.length = length;
+        this.temphash = 10;
     }
 
     hashCode(element) {
@@ -16,7 +17,8 @@ class Hashtable {
         if (l > 0)
             while (i < l)
                 h = (h << 5) - h + element.charCodeAt(i++) | 0;
-        return Math.abs(h);
+        // return Math.abs(h);
+        return this.temphash;
     };
 
     put(element) {
@@ -48,14 +50,11 @@ class Hashtable {
                 if (this.array[index].Element === element) {
                     this.array[index] = undefined;
                 } else {
-                    const current = this.array[index].NextNode;
-                    const prev = this.array[index];
-                    while (current) {
-                        if (current.Element === element) {
-                            prev.NextNode = current.NextNode;
+                    while (this.array[index].NextNode) {
+                        if (this.array[index].NextNode === element) {
+                            this.array[index].NextNode = undefined;
+                            break;
                         }
-                        prev = current;
-                        current = current.NextNode;
                     }
                 }
             }
@@ -64,14 +63,11 @@ class Hashtable {
                 if (this.array[hashCode].Element === element) {
                     this.array[hashCode] = undefined;
                 } else {
-                    const current = this.array[hashCode].NextNode;
-                    const prev = this.array[hashCode];
-                    while (current) {
-                        if (current.Element === element) {
-                            prev.NextNode = current.NextNode;
+                    while (this.array[hashCode].NextNode) {
+                        if (this.array[hashCode].NextNode === element) {
+                            this.array[hashCode].NextNode = undefined;
+                            break;
                         }
-                        prev = current;
-                        current = current.NextNode;
                     }
                 }
             }
@@ -95,8 +91,8 @@ class Hashtable {
     }
 }
 
-const ht = new Hashtable(1000);
+const ht = new Hashtable(5);
 ht.put('huseyn');
-ht.put('huseyn');
-ht.remove('huseyn');
+ht.put('senan');
+ht.remove('senan');
 ht.contains('huseyn');

@@ -10,7 +10,7 @@ class Hashtable {
         this.array = new Array(length);
         this.length = length;
         this.count = 0;
-        //this.temphash = 10;
+        this.temphash = 10;
     }
 
     hashCode(element) {
@@ -18,8 +18,8 @@ class Hashtable {
         if (l > 0)
             while (i < l)
                 h = (h << 5) - h + element.charCodeAt(i++) | 0;
-        return Math.abs(h);
-        //return this.temphash;
+        // return Math.abs(h);
+        return this.temphash;
     };
 
     put(element) {
@@ -64,24 +64,21 @@ class Hashtable {
     contains(element) {
         const hashCode = this.hashCode(element);
         const index = hashCode % this.length;
-        if (this.array[index]) {
-            if (this.array[index].Element === element) {
+
+        let tempNode = this.array[index];
+        while (tempNode) {
+            if (tempNode.Element === element) {
                 return true;
-            } else {
-                while (this.array[index].NextNode) {
-                    if (this.array[index].NextNode === element) {
-                        return true;
-                    }
-                }
             }
+            tempNode = tempNode.NextNode;
         }
         return false;
     }
 }
 
-const ht = new Hashtable(5);
+const ht = new Hashtable(30);
 ht.put('huseyn');
-ht.put('huseyn');
+ht.put('test');
 ht.put('asdf');
 ht.put('fg');
 ht.contains('huseyn');

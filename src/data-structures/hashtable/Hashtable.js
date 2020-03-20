@@ -41,12 +41,12 @@ class Hashtable {
         const index = hashCode % this.length;
         if (this.array[index]) {
             if (this.array[index].Element === element) {
-                this.array[index] = undefined;
+                this.array[index] = this.array[index].NextNode;
                 this.count--;
             } else {
                 while (this.array[index].NextNode) {
                     if (this.array[index].NextNode === element) {
-                        this.array[index].NextNode = undefined;
+                        this.array[index].NextNode = this.array[index].NextNode;
                         break;
                     }
                 }

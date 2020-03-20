@@ -26,16 +26,20 @@ class Hashtable {
         const hashCode = this.hashCode(element);
         const node = new Node(element);
         const index = hashCode % this.length;
-        if (this.array[index]) {
-            if (this.array[index] !== element) {
-                node.NextNode = this.array[index];
-                this.array[index] = node;
-                this.count++;
+
+        const head = this.array[index];
+        let tempNode = head;
+
+        while (tempNode) {
+            if (tempNode.Element === element) {
+                return;
             }
-        } else {
-            this.array[index] = element;
-            this.count++;
+            tempNode = tempNode.NextNode;
         }
+
+        node.NextNode = head;
+        this.array[index] = node;
+        this.count++;
     }
 
     remove(element) {

@@ -27,9 +27,11 @@ class Hashtable {
         const node = new Node(element);
         const index = hashCode % this.length;
         if (this.array[index]) {
-            node.NextNode = this.array[index];
-            this.array[index] = node;
-            this.count++;
+            if (this.array[index] !== element) {
+                node.NextNode = this.array[index];
+                this.array[index] = node;
+                this.count++;
+            }
         } else {
             this.array[index] = element;
             this.count++;

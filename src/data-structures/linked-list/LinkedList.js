@@ -154,5 +154,5 @@
 
  const linkedList = new LinkedList();
 
- console.log(linkedList.IndexOf("test"));
+ console.log(linkedList.indexOf("test"));
  module.exports = LinkedList;

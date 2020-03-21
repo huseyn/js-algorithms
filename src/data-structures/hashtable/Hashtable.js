@@ -99,3 +99,5 @@ ht.put('c');
 ht.put('d');
 ht.contains('a');
 ht.remove('a');
+
+module.exports = Hashtable;

@@ -40,14 +40,14 @@ class Stack {
     }
 }
 
-const stack=new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-const a = stack.peek();
-const b = stack.pop();
-const c = stack.contains(2);
-const d = stack.toArray();
-stack.clear();
+// const stack=new Stack();
+// stack.push(1);
+// stack.push(2);
+// stack.push(3);
+// const a = stack.peek();
+// const b = stack.pop();
+// const c = stack.contains(2);
+// const d = stack.toArray();
+// stack.clear();
 
 module.exports = Stack;

@@ -58,20 +58,20 @@ class Hashtable {
         let tempNode = this.array[index];
 
         if (!tempNode) {
-            return;
+            return -1;
         }
 
         if (tempNode.Element === element) {
             this.array[index] = tempNode.NextNode;
             this.count--;
-            return;
+            return element;
         }
 
         while (tempNode.NextNode) {
             if (tempNode.NextNode.Element === element) {
                 tempNode.NextNode = tempNode.NextNode.NextNode;
                 this.count--;
-                return;
+                return element;
             }
             tempNode = tempNode.NextNode;
         }

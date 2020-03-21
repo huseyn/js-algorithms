@@ -23,6 +23,15 @@ class Hashtable {
     };
 
     put(element) {
+
+        if (this.count / this.length > 0.7) {
+            const ht = new Hashtable(this.length * 2);
+            for (const item of this.array) {
+                ht.put(item);
+            }
+            this.array = ht.array;
+        }
+
         const hashCode = this.hashCode(element);
         const node = new Node(element);
         const index = hashCode % this.length;

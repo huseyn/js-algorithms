@@ -45,4 +45,19 @@ describe('Hashtable', () => {
         expect(hashtable.count).toBe(0);
         expect(hashtable.remove('a')).toBe(-1);
     });
+
+    it('should check whether element is exist or not', () => {
+        const hashtable = new Hashtable(3);
+        hashtable.put('a');
+        hashtable.put('b');
+        expect(hashtable.contains('a')).toBe(true);
+        expect(hashtable.contains('b')).toBe(true);
+        expect(hashtable.contains('c')).toBe(false);
+        hashtable.remove('a');
+        expect(hashtable.contains('a')).toBe(false);
+        hashtable.put('a');
+        expect(hashtable.contains('a')).toBe(true);
+        hashtable.put('c');
+        expect(hashtable.contains('c')).toBe(true);
+    });
 });

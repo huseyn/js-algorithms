@@ -23,11 +23,11 @@ class Hashtable {
     };
 
     put(element) {
-
         if (this.count / this.length > 0.7) {
             const ht = new Hashtable(this.length * 2);
+            this.length = this.length * 2;
             for (const item of this.array) {
-                ht.put(item);
+                ht.put(item.Element);
             }
             this.array = ht.array;
         }
@@ -92,7 +92,7 @@ class Hashtable {
     }
 }
 
-const ht = new Hashtable(30);
+const ht = new Hashtable(3);
 ht.put('a');
 ht.put('b');
 ht.put('c');

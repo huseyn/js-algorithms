@@ -22,7 +22,7 @@ add(element){
 }
 ```
 
-Sual yaranır. Əgər iki fərqli element üçün eyni hash hesablandıqda necə olacaq? Bundan da əlavə, daxil edilən x elementinin hash-i 1500 olsun. 1000 uzunluğu olan massivə əlavə edildikdə 500-cü indeksə yerləşəcək. Növbəti dəfə y elementi əlavə edilmək istənilərsə və onun orginal yəni qalıqsız hash-i 500 olarsa necə olacaq? İki fərqli element eyni indeksdə necə yerləşə bilər? Bu problem linkedlist ilə həll edilir. Artıq elementlər node obyekti kimi saxlanılır və hər bir node digərinə reference olur. Ümumiyyətlə hashtable-ın daxili massivində elementlər linkedlist formalaşdırmasa belə node şəklində saxlanılır. 
+Sual yaranır. Əgər iki fərqli element üçün eyni hash hesablanarsa onda necə olacaq? Bundan da əlavə, daxil edilən x elementinin hash-i 1500 olsun. 1000 uzunluğu olan massivə əlavə edildikdə 500-cü indeksə yerləşəcək. Növbəti dəfə y elementi əlavə edilmək istənilərsə və onun orginal yəni qalıqsız hash-i 500 olarsa necə olacaq? İki fərqli element eyni indeksdə necə yerləşə bilər? Bu problem linkedlist ilə həll edilir. Artıq elementlər node obyekti kimi saxlanılır və hər bir node digərinə reference olur. Ümumiyyətlə hashtable-ın daxili massivində elementlər linkedlist formalaşdırmasa belə node şəklində saxlanılır. 
 
 ![Alt text](linkedlist.PNG)
 

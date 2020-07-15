@@ -50,4 +50,4 @@ class Stack {
 // const d = stack.toArray();
 // stack.clear();
 
-module.exports = Stack;
+export default Stack;

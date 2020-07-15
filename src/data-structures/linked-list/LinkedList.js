@@ -1,158 +1,176 @@
- class LinkedList {
-     constructor() {
-         this.head = null;
-         this.tail = null;
-         this.Count = 0;
-     }
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.Count = 0;
+    }
 
-     add(element) {
-         const node = new Node(element, this.tail);
-         if (!this.head) {
-             this.head = node;
-             this.tail = this.head;
-         } else {
-             this.tail.NexNode = node;
-             this.tail = node;
-         }
+    add(element) {
+        const node = new Node(element, this.tail);
+        if (!this.head) {
+            this.head = node;
+            this.tail = this.head;
+        } else {
+            this.tail.NexNode = node;
+            this.tail = node;
+        }
 
-         this.Count++;
-     }
+        this.Count++;
+    }
 
-     remove(element) {
+    remove(element) {
 
-         if (this.Count === 0) {
-             return -1;
-         }
+        if (this.Count === 0) {
+            return -1;
+        }
 
-         let index = 0;
-         let tempNode = this.head;
+        let index = 0;
+        let tempNode = this.head;
 
-         if (tempNode.Element === element) {
-             this.head = this.head.NexNode;
-             if (!this.head) {
-                 this.tail = null;
-             }
-             this.Count--;
-             return index;
-         }
+        if (tempNode.Element === element) {
+            this.head = this.head.NexNode;
+            if (!this.head) {
+                this.tail = null;
+            }
+            this.Count--;
+            return index;
+        }
 
-         while (tempNode.NexNode) {
-             if (tempNode.NexNode.Element === element) {
-                 this.Count--;
-                 tempNode.NexNode = tempNode.NexNode.NexNode;
-                 if (!tempNode.NexNode) {
-                     this.tail = tempNode;
-                 }
-                 index++;
-                 break;
-             }
-             tempNode = tempNode.NexNode;
-             index++;
-         }
+        while (tempNode.NexNode) {
+            if (tempNode.NexNode.Element === element) {
+                this.Count--;
+                tempNode.NexNode = tempNode.NexNode.NexNode;
+                if (!tempNode.NexNode) {
+                    this.tail = tempNode;
+                }
+                index++;
+                break;
+            }
+            tempNode = tempNode.NexNode;
+            index++;
+        }
 
-         return index;
-     }
+        return index;
+    }
 
-     removeAt(index) {
-         if (index < 0 || index >= this.Count) {
-             throw new Error("Index is out of bound");
-         }
+    removeAt(index) {
+        if (index < 0 || index >= this.Count) {
+            throw new Error("Index is out of bound");
+        }
 
-         let nodeElement;
-         if (index == 0) {
-             nodeElement = this.head.Element;
-             this.head = this.head.NexNode;
-             if (!this.head) {
-                 this.tail = null;
-             }
-             this.Count--;
-             return nodeElement;
-         }
+        let nodeElement;
+        if (index == 0) {
+            nodeElement = this.head.Element;
+            this.head = this.head.NexNode;
+            if (!this.head) {
+                this.tail = null;
+            }
+            this.Count--;
+            return nodeElement;
+        }
 
-         let currentIndex = 1;
-         let tempNode = this.head;
+        let currentIndex = 1;
+        let tempNode = this.head;
 
-         while (currentIndex < index) {
-             currentIndex++;
-             tempNode = tempNode.NexNode;
-         }
+        while (currentIndex < index) {
+            currentIndex++;
+            tempNode = tempNode.NexNode;
+        }
 
-         this.Count--;
-         nodeElement = tempNode.NexNode.Element;
-         tempNode.NexNode = tempNode.NexNode.NexNode;
+        this.Count--;
+        nodeElement = tempNode.NexNode.Element;
+        tempNode.NexNode = tempNode.NexNode.NexNode;
 
-         if (!tempNode.NexNode)
-             this.tail = tempNode;
+        if (!tempNode.NexNode)
+            this.tail = tempNode;
 
-         return nodeElement;
-     }
+        return nodeElement;
+    }
 
-     indexOf(element) {
+    indexOf(element) {
 
-         if (this.Count === 0) {
-             return -1;
-         }
+        if (this.Count === 0) {
+            return -1;
+        }
 
-         let index = 0;
-         let tempNode = this.head;
+        let index = 0;
+        let tempNode = this.head;
 
-         if (tempNode.Element === element) {
-             return index;
-         }
+        if (tempNode.Element === element) {
+            return index;
+        }
 
-         while (tempNode.NexNode) {
-             index++;
-             if (tempNode.NexNode.Element === element) {
-                 return index;
-             }
-             tempNode = tempNode.NexNode;
-         }
+        while (tempNode.NexNode) {
+            index++;
+            if (tempNode.NexNode.Element === element) {
+                return index;
+            }
+            tempNode = tempNode.NexNode;
+        }
 
-         return -1;
-     }
+        return -1;
+    }
 
-     insert(index, element) {
-         if (index < 0 || index > this.Count) {
-             throw new Error("Index is out of bound");
-         }
+    insert(index, element) {
+        if (index < 0 || index > this.Count) {
+            throw new Error("Index is out of bound");
+        }
 
-         let tempNode = this.head;
-         let singleNode = tempNode.NexNode;
+        let tempNode = this.head;
+        let singleNode = tempNode.NexNode;
 
-         if (index == 0) {
-             singleNode = this.head;
-             this.head = new Node(element);
-             this.head.NexNode = singleNode;
-             return;
-         }
+        if (index == 0) {
+            singleNode = this.head;
+            this.head = new Node(element);
+            this.head.NexNode = singleNode;
+            return;
+        }
 
-         let currentIndex = 1;
-         while (currentIndex < index) {
-             currentIndex++;
-             tempNode = tempNode.NexNode;
-         }
+        let currentIndex = 1;
+        while (currentIndex < index) {
+            currentIndex++;
+            tempNode = tempNode.NexNode;
+        }
 
-         singleNode = tempNode.NexNode;
-         tempNode.NexNode = new Node(element);
-         tempNode.NexNode.NexNode = singleNode;
-     }
+        singleNode = tempNode.NexNode;
+        tempNode.NexNode = new Node(element);
+        tempNode.NexNode.NexNode = singleNode;
+    }
 
-     contains(element) {
-         return this.IndexOf(element) != -1;
-     }
- }
+    contains(element) {
+        return this.IndexOf(element) != -1;
+    }
+
+    reverse() {
+        let previous = null;
+
+        while (this.head) {
+            let next = this.head.NexNode;
+            this.head.NexNode = previous;
+            previous = this.head;
+            this.head = next;
+        }
+
+        return previous;
+    }
+}
 
 
- class Node {
-     constructor(element, prevNode = null, nextNode = null) {
-         this.Element = element;
-         this.NexNode = nextNode;
-         this.PrevNode = prevNode;
-     }
- }
+class Node {
+    constructor(element, prevNode = null, nextNode = null) {
+        this.Element = element;
+        this.NexNode = nextNode;
+        this.PrevNode = prevNode;
+    }
+}
 
 
- const linkedList = new LinkedList();
+const linkedList = new LinkedList();
+linkedList.add(1);
+linkedList.add(2);
+linkedList.add(3);
+linkedList.add(4);
+linkedList.add(5);
 
- console.log(linkedList.indexOf("test"));
- module.exports = LinkedList;
+console.log(linkedList.reverse());
+// export default LinkedList;

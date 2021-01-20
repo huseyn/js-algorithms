@@ -153,19 +153,6 @@ class LinkedList {
 
         return previous;
     }
-
-    isMountainArray(arr) {
-        let top = 0;
-
-        if (arr[arr.length - 1] > arr[arr.length - 2]) return false;
-
-        for (let i = 1; i < arr.length - 1; i++) {
-            if (arr[i] == arr[i - 1]) return false;
-            if (arr[i] < arr[i - 1] && arr[i] < arr[i + 1]) return false;
-            if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) top++;
-        }
-        return top == 1;
-    }
 }
 
 
@@ -184,6 +171,3 @@ linkedList.add(2);
 linkedList.add(3);
 linkedList.add(4);
 linkedList.add(5);
-
-console.log(linkedList.reverse());
-// export default LinkedList;

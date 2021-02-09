@@ -11,6 +11,7 @@ In computer science, a data structure is a data organization, management, and st
 Source: [Data Structures](https://en.wikipedia.org/wiki/Data_structure).
 
 
+* [Array](src/data-structures/array)
 * [Linked List](src/data-structures/linked-list)
 * [Hashtable](src/data-structures/hashtable)
 * [Stack](src/data-structures/stack)
